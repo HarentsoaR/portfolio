@@ -67,37 +67,32 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-bold">
-              I&apos;m <span className="text-primary">Jane Doe</span>, a Creative
-              Designer
-            </h3>
             <p className="text-muted-foreground">
-              I&apos;m a passionate designer and developer with a keen eye for
-              aesthetics and functionality. My journey in design started 5 years
+              I'm a passionate Fullstack Developer and Master 1 student at ITU University, with a keen eye for
+              aesthetics and functionality. My journey in development started 5 years
               ago, and I&apos;ve been on a continuous learning path ever since.
             </p>
             <p className="text-muted-foreground">
-              I specialize in creating engaging user experiences through
-              thoughtful design and robust development. My goal is to build
-              digital products that not only look great but also solve real
+              My specialties include UX/UI design, building secured applications, and developing SaaS solutions.
+              My goal is to build digital products that not only look great but also solve real
               problems for users.
             </p>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="font-medium">Name:</p>
-                <p className="text-muted-foreground">Jane Doe</p>
+                <p className="text-muted-foreground">Mégane Rakotonarivo</p>
               </div>
               <div>
                 <p className="font-medium">Email:</p>
-                <p className="text-muted-foreground">hello@example.com</p>
+                <p className="text-muted-foreground">rakotonarivomegane@gmail.com</p>
               </div>
               <div>
                 <p className="font-medium">From:</p>
-                <p className="text-muted-foreground">New York, USA</p>
+                <p className="text-muted-foreground">Antananarivo, MADAGASCAR</p>
               </div>
               <div>
                 <p className="font-medium">Freelance:</p>
-                <p className="text-primary">Available</p>
+                <p className="text-primary">Work in progress</p>
               </div>
             </div>
             <Button className="gap-2">
@@ -109,27 +104,27 @@ export default function AboutSection() {
           <div className="grid grid-cols-2 gap-4">
             {[
               {
-                id: "stat-experience",
-                number: "5+",
-                text: "Years of Experience",
+                id: "stat-commits",
+                number: "500+",
+                text: "GitHub Commit Count",
                 color: "bg-primary/10 text-primary",
               },
               {
-                id: "stat-projects",
-                number: "50+",
-                text: "Projects Completed",
+                id: "stat-repos",
+                number: "4+",
+                text: "Repositories",
                 color: "bg-blue-500/10 text-blue-500",
               },
               {
-                id: "stat-clients",
-                number: "30+",
-                text: "Happy Clients",
+                id: "stat-followers",
+                number: "4+",
+                text: "Followers",
                 color: "bg-green-500/10 text-green-500",
               },
               {
-                id: "stat-awards",
-                number: "10+",
-                text: "Awards Won",
+                id: "stat-stars",
+                number: "5+",
+                text: "Stars",
                 color: "bg-amber-500/10 text-amber-500",
               },
             ].map((stat) => (

@@ -154,9 +154,9 @@ export default function HeroSection() {
             animate="visible"
             variants={titleVariants}
           >
-            <span className="text-primary">Jane Doe</span>
+            <span className="text-primary">Mégane Rakotonarivo</span>
             <br />
-            Creative Designer
+            Fullstack Developer
           </motion.h1>
 
           <motion.p
@@ -165,9 +165,7 @@ export default function HeroSection() {
             animate="visible"
             variants={subtitleVariants}
           >
-            I design and develop experiences that make people's lives simpler
-            through Web and Mobile apps. I work with Figma, HTML5, CSS3,
-            JavaScript, React, and NextJS.
+            I am determined to achieve excellence in all projects I undertake. My commitment drives me to seize every professional opportunity and enrich my experience.
           </motion.p>
 
           <motion.div
