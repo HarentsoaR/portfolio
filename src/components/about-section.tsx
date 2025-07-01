@@ -95,10 +95,12 @@ export default function AboutSection() {
                 <p className="text-primary">Work in progress</p>
               </div>
             </div>
-            <Button className="gap-2">
-              <Download size={16} />
-              Download Resume
-            </Button>
+            <a href="/CV-MéganeRakotonarivo.pdf" download>
+              <Button className="gap-2">
+                <Download size={16} />
+                Download Resume
+              </Button>
+            </a>
           </motion.div>
 
           <div className="grid grid-cols-2 gap-4">

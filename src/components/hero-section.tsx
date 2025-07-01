@@ -193,7 +193,7 @@ export default function HeroSection() {
           <div className="relative w-full aspect-square rounded-full border-4 border-primary p-2">
             <div className="rounded-full overflow-hidden bg-primary/10 w-full h-full">
               <Image
-                src="/images/megane.jpg"
+                src="/images/megane2.png"
                 alt="Mégane Rakotonarivo Profile"
                 layout="fill"
                 objectFit="cover"
