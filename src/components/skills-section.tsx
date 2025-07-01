@@ -12,25 +12,48 @@ type Skill = {
   color: string;
 };
 
-// Sample skills data
+// Updated skills data
 const skillsData: Skill[] = [
-  { name: "HTML & CSS", level: 95, category: "development", color: "#e74c3c" },
-  { name: "JavaScript", level: 90, category: "development", color: "#f1c40f" },
-  { name: "React", level: 85, category: "development", color: "#3498db" },
-  { name: "Next.js", level: 80, category: "development", color: "#2c3e50" },
-  { name: "Figma", level: 90, category: "design", color: "#9b59b6" },
-  { name: "UI/UX Design", level: 85, category: "design", color: "#1abc9c" },
-  {
-    name: "Responsive Design",
-    level: 95,
-    category: "design",
-    color: "#e67e22",
-  },
-  { name: "Typography", level: 80, category: "design", color: "#34495e" },
-  { name: "Git", level: 85, category: "tools", color: "#e74c3c" },
-  { name: "VS Code", level: 90, category: "tools", color: "#3498db" },
-  { name: "Adobe CC", level: 75, category: "tools", color: "#9b59b6" },
-  { name: "Terminal", level: 70, category: "tools", color: "#2c3e50" },
+  // SYSTEMS (Tools)
+  { name: "Windows", level: 85, category: "tools", color: "#0078D4" },
+  { name: "Linux", level: 80, category: "tools", color: "#FCC624" },
+
+  // LANGUAGES (Development)
+  { name: "Java", level: 85, category: "development", color: "#007396" },
+  { name: "PHP", level: 80, category: "development", color: "#777BB4" },
+  { name: "C#", level: 80, category: "development", color: "#6A2F7C" },
+  { name: "Python", level: 90, category: "development", color: "#3776AB" },
+  { name: "JavaScript", level: 95, category: "development", color: "#F7DF1E" },
+  { name: "HTML5", level: 95, category: "development", color: "#E34C26" },
+  { name: "CSS3", level: 90, category: "development", color: "#1572B6" },
+
+  // SGBD (Development)
+  { name: "PostgreSQL", level: 80, category: "development", color: "#336791" },
+  { name: "MySQL", level: 85, category: "development", color: "#4479A1" },
+  { name: "MongoDB", level: 80, category: "development", color: "#47A248" },
+
+  // FRAMEWORKS & LIBRARIES (Development)
+  { name: "Express.js", level: 80, category: "development", color: "#000000" },
+  { name: "ReactJS", level: 90, category: "development", color: "#61DAFB" },
+  { name: "Vue.js", level: 80, category: "development", color: "#4FC08D" },
+  { name: "Bootstrap", level: 85, category: "development", color: "#7952B3" },
+  { name: "Next.js", level: 85, category: "development", color: "#000000" },
+
+  // TOOLS
+  { name: "VSCode", level: 90, category: "tools", color: "#007ACC" },
+  { name: "IntelliJ IDEA", level: 80, category: "tools", color: "#000000" },
+  { name: "Git", level: 85, category: "tools", color: "#F05032" },
+  { name: "Postman", level: 80, category: "tools", color: "#FF6C37" },
+  { name: "Notion", level: 75, category: "tools", color: "#000000" },
+  { name: "Docker", level: 75, category: "tools", color: "#2496ED" },
+  { name: "Kubernetes", level: 70, category: "tools", color: "#326CE5" },
+  { name: "Jupyter", level: 70, category: "tools", color: "#F37626" },
+  { name: "CI/CD", level: 70, category: "tools", color: "#000000" },
+
+  // OTHER (Development)
+  { name: "JWT", level: 75, category: "development", color: "#000000" },
+  { name: "OAuth", level: 75, category: "development", color: "#000000" },
+  { name: "OpenAI API", level: 70, category: "development", color: "#47A248" },
 ];
 
 export default function SkillsSection() {
