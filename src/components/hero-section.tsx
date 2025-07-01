@@ -192,10 +192,13 @@ export default function HeroSection() {
         >
           <div className="relative w-full aspect-square rounded-full border-4 border-primary p-2">
             <div className="rounded-full overflow-hidden bg-primary/10 w-full h-full">
-              {/* Replace this with actual image */}
-              <div className="w-full h-full flex items-center justify-center text-center p-10 text-xl font-medium text-muted-foreground">
-                Profile Image Placeholder
-              </div>
+              <Image
+                src="/images/megane.jpg"
+                alt="Mégane Rakotonarivo Profile"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full"
+              />
             </div>
           </div>
         </motion.div>
