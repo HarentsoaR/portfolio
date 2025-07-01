@@ -59,17 +59,17 @@ export default function ContactSection() {
     {
       icon: <MapPin className="text-primary" />,
       title: "Location",
-      details: "New York, NY, United States",
+      details: "Antananarivo, MG, Madagascar",
     },
     {
       icon: <Mail className="text-primary" />,
       title: "Email",
-      details: "hello@example.com",
+      details: "rakotonarivomegane@gmail.com",
     },
     {
       icon: <Phone className="text-primary" />,
       title: "Phone",
-      details: "+1 (123) 456-7890",
+      details: "+261 38 58 681 74",
     },
   ];
 
@@ -134,7 +134,7 @@ export default function ContactSection() {
             <Card className="overflow-hidden h-full">
               <CardContent className="p-0 h-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583088354!2d-74.11976389828038!3d40.697663747508045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2suk!4v1651271346559!5m2!1sen!2suk"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.960205253805!2d47.48060!3d-18.91510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDU0JzU0LjQiUyA0N8KwMjgnNDkuNyJF!5e0!3m2!1sen!2smg!4v1678912345678!5m2!1sen!2smg"
                   className="w-full h-full min-h-[300px]"
                   style={{ border: 0 }}
                   allowFullScreen={true}
