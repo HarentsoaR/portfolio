@@ -92,10 +92,7 @@ export default function Footer() {
 
           <div className="text-center text-muted-foreground text-sm">
             <p className="mb-2">
-              © {new Date().getFullYear()} Jane Doe. All rights reserved.
-            </p>
-            <p>
-              Crafted with passion using Next.js and Tailwind CSS
+              © {new Date().getFullYear()} Soul_meg. All rights reserved.
             </p>
           </div>
         </div>
