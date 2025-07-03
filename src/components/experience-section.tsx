@@ -4,6 +4,8 @@ import { motion, useInView } from "framer-motion";
 import { GraduationCap, Briefcase, Star, Building, School } from "lucide-react";
 import { useTheme } from "next-themes";
 import React, { useRef, useEffect, useState } from "react";
+import { Card, CardContent } from "./ui/card";
+import { Button } from "./ui/button";
 
 // --- DATA ---
 type TimelineItemType = {
@@ -108,12 +110,11 @@ const itemVariants = {
 };
 
 // --- REUSABLE COMPONENTS ---
-const TimelineItem: React.FC<{ item: TimelineItemType; isLast: boolean }> = ({ item, isLast }) => {
+const TimelineItem: React.FC<{ item: TimelineItemType; isLast: boolean, isDark: boolean }> = ({ item, isLast, isDark }) => {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
-  const isDark = theme === 'dark';
 
   return (
     <motion.div
@@ -122,15 +123,13 @@ const TimelineItem: React.FC<{ item: TimelineItemType; isLast: boolean }> = ({ i
     >
       {/* Timeline Line and Icon */}
       <div className="absolute left-0 top-1">
-        <div className={`absolute left-[1.5px] top-9 h-full w-0.5 ${isDark ? 'bg-slate-700' : 'bg-slate-200'} ${isLast ? 'h-0' : ''}`}></div>
+        <div className={`absolute left-[1.5px] top-9 h-full w-0.5 bg-border ${isLast ? 'h-0' : ''}`}></div>
         <motion.div
           whileHover={{ scale: 1.2, rotate: 10 }}
           className={`absolute -left-1.5 top-0 z-10 flex h-9 w-9 items-center justify-center rounded-full ${
             item.current
               ? "bg-primary text-primary-foreground shadow-lg shadow-primary/40"
-              : isDark
-              ? "bg-slate-800 border-2 border-slate-600"
-              : "bg-white border-2 border-slate-200"
+              : "bg-background border-2 border-border"
           }`}
         >
           <item.Icon className={`h-5 w-5 ${item.current ? "" : "text-primary"}`} />
@@ -140,11 +139,9 @@ const TimelineItem: React.FC<{ item: TimelineItemType; isLast: boolean }> = ({ i
       {/* Card Content */}
       <motion.div
         whileHover={{ scale: 1.03, y: -5, boxShadow: `0 10px 20px ${isDark ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0.1)'}` }}
-        className={`rounded-xl p-5 transition-all duration-300 ${
-          isDark
-            ? "bg-slate-800/50 hover:bg-slate-800 border border-slate-700"
-            : "bg-white hover:bg-slate-50 border border-slate-200/80"
-        } ${item.current ? `border-2 border-primary/80 ${isDark ? 'bg-primary/10' : 'bg-primary/5'}` : ""}`}
+        className={`rounded-xl p-5 transition-all duration-300 
+          bg-card hover:bg-card-hover border border-border
+         ${item.current ? `border-2 border-primary/80 bg-primary/5` : ""}`}
       >
         <div className="flex items-center justify-between mb-1">
           <h4 className="font-semibold text-md md:text-lg text-foreground">{item.title}</h4>
@@ -164,6 +161,8 @@ const TimelineItem: React.FC<{ item: TimelineItemType; isLast: boolean }> = ({ i
 const Timeline: React.FC<TimelineSectionType> = ({ category, icon, items }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
 
   return (
     <motion.div
@@ -178,7 +177,7 @@ const Timeline: React.FC<TimelineSectionType> = ({ category, icon, items }) => {
       </h3>
       <div className="relative">
         {items.map((item: TimelineItemType, index: number) => (
-          <TimelineItem key={index} item={item} isLast={index === items.length - 1} />
+          <TimelineItem key={index} item={item} isLast={index === items.length - 1} isDark={isDark} />
         ))}
       </div>
     </motion.div>
@@ -188,12 +187,37 @@ const Timeline: React.FC<TimelineSectionType> = ({ category, icon, items }) => {
 export default function ExperienceSection() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <section id="experience" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">My Experience</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-8" />
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Loading experience...</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <div className="relative border-l-2 border-primary/30 pl-6"></div>
+            </div>
+            <div>
+              <div className="relative border-l-2 border-primary/30 pl-6"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   const isDark = theme === 'dark';
 
   return (
-    <section id="experience" className={`py-24 md:py-32 transition-colors duration-300 ${isDark ? 'bg-background' : 'bg-muted/30'}`}>
+    <section id="experience" className={`py-24 md:py-32 transition-colors duration-300 bg-background`}>
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button"; // Assuming you have a shadcn/ui button
 import { ArrowDown, Code, Database, FileCode } from "lucide-react";
@@ -41,10 +41,7 @@ const buttonContainerVariants = {
  * Animated Profile Picture Component
  * Features a floating animation and orbiting skill icons.
  */
-const AnimatedPhoto = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-
+const AnimatedPhoto: React.FC<{ isDark: boolean }> = ({ isDark }) => {
   return (
     <motion.div
       className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto"
@@ -63,21 +60,23 @@ const AnimatedPhoto = () => {
           repeat: Infinity,
         }}
       >
-        {/* Main image with glowing border */}
+        {/* Main image with glowing border and overlay */}
         <div className={`relative w-full aspect-square rounded-full p-2
-          bg-gradient-to-br ${isDark ? 'from-primary/20 via-slate-900 to-slate-900' : 'from-primary/10 via-slate-50 to-slate-50'}
+          bg-gradient-to-br from-primary/20 via-background to-background
           shadow-xl ${isDark ? 'shadow-primary/20' : 'shadow-primary/10'}`}>
-            <div className={`rounded-full overflow-hidden w-full h-full border-2 ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
+            <div className={`rounded-full overflow-hidden w-full h-full border-2 border-border relative`}>
                 <Image
-                    src="/images/megane2.png" // Make sure this path is correct
+                    src="/images/megane2.png"
                     alt="Mégane Rakotonarivo Profile"
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-full scale-105"
+                    className="rounded-full"
                     priority
-                    // Fallback in case the image fails to load
                     onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x400/7b4ae2/ffffff?text=MR'; }}
                 />
+                {/* Subtle overlay for theme matching */}
+                <div className={`absolute inset-0 rounded-full transition-colors duration-300
+                  bg-primary/5`}></div>
             </div>
         </div>
       </motion.div>
@@ -175,10 +174,37 @@ const ParticleBackground = () => {
 // --- MAIN SECTION COMPONENT ---
 export default function HeroSection() {
     const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+      setMounted(true);
+    }, []);
+
+    if (!mounted) {
+      return (
+        <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background">
+          {/* Placeholder content to match structure for hydration */}
+          <div className="container mx-auto px-4 z-10">
+            <div className="grid md:grid-cols-2 items-center gap-12 md:gap-8">
+              {/* Left Side: Text Content Placeholder */}
+              <div className="text-center md:text-left">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-foreground"></h1>
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto md:mx-0"></p>
+              </div>
+              {/* Right Side: Animated Photo Placeholder */}
+              <div className="flex justify-center md:justify-end">
+                <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto aspect-square rounded-full bg-muted"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
     const isDark = theme === 'dark';
 
     return (
-        <section id="home" className={`relative min-h-screen w-full flex items-center justify-center overflow-hidden transition-colors duration-300 ${isDark ? 'bg-slate-900' : 'bg-slate-50'}`}>
+        <section id="home" className={`relative min-h-screen w-full flex items-center justify-center overflow-hidden transition-colors duration-300 bg-background`}>
             <ParticleBackground />
             
             <div className="container mx-auto px-4 z-10">
@@ -229,7 +255,7 @@ export default function HeroSection() {
 
                     {/* Right Side: Animated Photo */}
                     <div className="flex justify-center md:justify-end">
-                        <AnimatedPhoto />
+                        <AnimatedPhoto isDark={isDark} />
                     </div>
                 </motion.div>
             </div>
