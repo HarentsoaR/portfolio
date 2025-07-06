@@ -68,13 +68,15 @@ export default function AboutSection() {
             className="space-y-6"
           >
             <p className="text-muted-foreground">
-              I'm a passionate Fullstack Developer and Master 1 student at ITU University, with a keen eye for
-              aesthetics and functionality. My journey in development started 5 years
-              ago, and I&apos;ve been on a continuous learning path ever since.
+              I'm a passionate Fullstack Developer and Master 1 student at ITU
+              University, with a keen eye for aesthetics and functionality. My
+              journey in development started 5 years ago, and I&apos;ve been on
+              a continuous learning path ever since.
             </p>
             <p className="text-muted-foreground">
-              My specialties include UX/UI design, building secured applications, and developing SaaS solutions.
-              My goal is to build digital products that not only look great but also solve real
+              My specialties include UX/UI design, building secured
+              applications, and developing SaaS solutions. My goal is to build
+              digital products that not only look great but also solve real
               problems for users.
             </p>
             <div className="grid grid-cols-2 gap-4">
@@ -84,16 +86,20 @@ export default function AboutSection() {
               </div>
               <div>
                 <p className="font-medium">Email:</p>
-                <p className="text-muted-foreground">rakotonarivomegane@gmail.com</p>
+                <p className="text-muted-foreground">
+                  rakotonarivomegane@gmail.com
+                </p>
               </div>
               <div>
                 <p className="font-medium">From:</p>
-                <p className="text-muted-foreground">Antananarivo, MADAGASCAR</p>
+                <p className="text-muted-foreground">
+                  Antananarivo, MADAGASCAR
+                </p>
               </div>
-              <div>
+              {/* <div>
                 <p className="font-medium">Freelance:</p>
                 <p className="text-primary">Work in progress</p>
-              </div>
+              </div> */}
             </div>
             <a href="/CV-MéganeRakotonarivo.pdf" download>
               <Button className="gap-2">
@@ -107,13 +113,13 @@ export default function AboutSection() {
             {[
               {
                 id: "stat-commits",
-                number: "500+",
+                number: "200+",
                 text: "GitHub Commit Count",
                 color: "bg-primary/10 text-primary",
               },
               {
                 id: "stat-repos",
-                number: "4+",
+                number: "15+",
                 text: "Repositories",
                 color: "bg-blue-500/10 text-blue-500",
               },
